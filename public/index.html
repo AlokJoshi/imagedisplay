@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery.js"></script>
+    <script src="jquery.cycle.all.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var el = $("#pics");
+            $.ajax({
+                    url: "//localhost:3000/allimages"
+                })
+                .done(function(data) {
+                    console.log(data);
+                    var images = JSON.parse(data).images;
+                    images.forEach((img) => {
+                        var imgel = document.createElement("IMG");
+                        imgel.src = img;
+                        //console.log(img);
+                        //console.log('<img src="'+img+'"/>');
+                        el.append(imgel);
+                    })
+                    //$("#pics").innerHTML=data;
+                    $('#pics').cycle('blindX');
+                });
+
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="pics">
+        <!--
+        <img src="images/image1.png" alt="">
+        <img src="images/image2.png" alt="">
+        <img src="Images/image3.png" alt="">
+        -->
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <circle cx="30" cy="30" r="25" style="stroke: none; fill: #0000ff;">
+            <animate attributeName="cx" attributeType="XML" from="30" to="470" begin="0s" dur="5s" fill="remove" repeatCount="indefinite" />
+
+        </circle>
+    </svg>
+</body>
+
+</html>
