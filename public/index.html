@@ -13,7 +13,8 @@
         $(document).ready(function() {
             var el = $("#pics");
             $.ajax({
-                    url: "//localhost:3000/allimages"
+                    //url: "//localhost:8000/allimages"
+                    url: location.href + "allimages"
                 })
                 .done(function(data) {
                     console.log(data);
