@@ -1,5 +1,5 @@
 var fs = require('fs');
-const imagesFolder = './Images/';
+const imagesFolder = '../Images/';
 const images=[];
 
 fs.readdir(imagesFolder, (err, files) => {
